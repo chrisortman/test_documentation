@@ -8,5 +8,5 @@
 `LineItem.where(:service_id => service_ids).count`
 6. If the above count returns zero (0) you can safely remove the provider, program, or core.
 7. In order to delete all data below you would need to loop over child organizations and delete them first.  
-Example if trying to delete a provider.  `org.programs.each{|program| program.cores.each(&:destroy); program.destroy; org.destroy}`
+Example if trying to delete a provider.  `org.programs.each{|program| program.cores.each(&:destroy); program.reload; program.destroy}`
 8. If the count in step 5 is greater than zero additional steps would be required.  This can be as simple as moving the services to a new/existing organization or very complex which would include determining statuses of service requests and removing line items. 
