@@ -1,0 +1,1 @@
+git log --pretty=format:'%h %d %s' --abbrev-commit --date=relative 1211c79e84a37245600d619e125b5d388e3cd707..musc_production
